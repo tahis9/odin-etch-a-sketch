@@ -1,9 +1,10 @@
-const docWidth = 960;
+const docWidth = 600;
 const container = document.querySelector(".container");
 const opacityDelta = 0.1;
 const btn = document.querySelector(".btn");
 
-
+container.style.width = `${docWidth}px`;
+container.style.height = `${docWidth}px`;
 
 function createSquares(sideSquares) {
   const squareDiv = document.createElement("div")

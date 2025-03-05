@@ -1,11 +1,11 @@
 
 body > * {
-  margin: 10px auto;
+  margin: 4px auto;
 }
 
 .btn {
-  width: 120px;
-  height: 60px;
+  width: 80px;
+  height: 40px;
   text-align: center;
   display: block;
 }
@@ -14,7 +14,7 @@ body > * {
 .container {
   display: flex;
   flex-flow: wrap;
-  width: 960px;
+  /* width: 960px; */
   justify-content: center;
   border: 1px black solid;
 }
