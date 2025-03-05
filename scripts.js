@@ -1,10 +1,19 @@
-const docWidth = 600;
+let docWidth = 600;
 const container = document.querySelector(".container");
 const opacityDelta = 0.1;
-const btn = document.querySelector(".btn");
+const resetBtn = document.querySelector("#resetBtn");
+const resetCanvas = document.querySelector("#resetCanvas");
 
 container.style.width = `${docWidth}px`;
 container.style.height = `${docWidth}px`;
+
+function randomiseRGB() {
+  let R = Math.floor(Math.random()*256);
+  let G = Math.floor(Math.random()*256);
+  let B = Math.floor(Math.random()*256);
+  randomColour = "rgb(" + R + "," + G + "," + B + ", 0.5)";
+  return randomColour;
+}
 
 function createSquares(sideSquares) {
   const squareDiv = document.createElement("div")
@@ -18,8 +27,9 @@ function createSquares(sideSquares) {
   let squares = document.querySelectorAll(".squares");
   squares.forEach((element,i) => { 
     element.addEventListener("mouseenter", () => {
+      squares[i].style.backgroundColor = randomiseRGB();
       squares[i].style.opacity = Number(squares[i].style.opacity)+opacityDelta;
-      console.log(i) 
+      // console.log(i) 
     });
   });
 }
@@ -41,5 +51,21 @@ function reset() {
   }
 }
 
+function changeCanvas() {
+  canvasWidth = +window.prompt("Pixel width/height for Canvas (Min: 100)", 600);
+  let i = 1;
+  while (i){
+    if (canvasWidth >= 100 && Number.isInteger(canvasWidth)) {
+      docWidth = canvasWidth;
+      reset();
+      return
+    } else {
+      canvasWidth = +window.prompt("Invalid response. Please enter an integer greater than 99", 600);
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", createSquares(16));
-btn.addEventListener("click", reset);
+resetBtn.addEventListener("click", reset);
+resetCanvas.addEventListener("click", changeCanvas);
+
