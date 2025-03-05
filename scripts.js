@@ -4,8 +4,11 @@ const opacityDelta = 0.1;
 const resetBtn = document.querySelector("#resetBtn");
 const resetCanvas = document.querySelector("#resetCanvas");
 
+function canvas() {
 container.style.width = `${docWidth}px`;
 container.style.height = `${docWidth}px`;
+}
+canvas()
 
 function randomiseRGB() {
   let R = Math.floor(Math.random()*256);
@@ -57,6 +60,7 @@ function changeCanvas() {
   while (i){
     if (canvasWidth >= 100 && Number.isInteger(canvasWidth)) {
       docWidth = canvasWidth;
+      canvas();
       reset();
       return
     } else {
