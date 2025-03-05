@@ -1,0 +1,14 @@
+
+.container {
+  display: flex;
+  flex-flow: wrap;
+  width: 960px;
+  justify-content: center;
+  border: 1px black solid;
+  margin: 10px auto;
+}
+
+.container > * {
+  box-sizing: border-box;
+  border: 1px black solid;
+}
